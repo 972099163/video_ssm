@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2019-01-23 16:06:40
+Date: 2019-01-25 11:00:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,11 +28,19 @@ CREATE TABLE `video_infomation` (
   PRIMARY KEY (`video_id`),
   KEY `type_id` (`type_id`),
   CONSTRAINT `type_id` FOREIGN KEY (`type_id`) REFERENCES `video_type` (`type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of video_infomation
 -- ----------------------------
+INSERT INTO `video_infomation` VALUES ('1', '爱在黎明破晓前', 'url_123', 'image', '1');
+INSERT INTO `video_infomation` VALUES ('2', '他其实没有那么爱你', 'url_234', 'image', '1');
+INSERT INTO `video_infomation` VALUES ('3', '傲慢与偏见', 'url2', 'image', '1');
+INSERT INTO `video_infomation` VALUES ('4', '真爱至上', '2', '2', '1');
+INSERT INTO `video_infomation` VALUES ('5', '加勒比海盗', '2', '2', '2');
+INSERT INTO `video_infomation` VALUES ('6', '美国丽人', '2', '2', '1');
+INSERT INTO `video_infomation` VALUES ('7', '无名之辈', '3', '3', '1');
+INSERT INTO `video_infomation` VALUES ('8', '红海行动', '2', '2', '1');
 
 -- ----------------------------
 -- Table structure for video_type

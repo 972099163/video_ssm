@@ -7,6 +7,7 @@
     <result column="video_url" property="videoUrl" jdbcType="VARCHAR" />
     <result column="video_image" property="videoImage" jdbcType="VARCHAR" />
     <result column="type_id" property="typeId" jdbcType="INTEGER" />
+    <result column="type_name" property="typeName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     video_id, video_name, video_url, video_image, type_id
@@ -90,4 +91,19 @@
       type_id = #{typeId,jdbcType=INTEGER}
     where video_id = #{videoId,jdbcType=INTEGER}
   </update>
+  
+    <select id="selectAll" resultMap="BaseResultMap" parameterType="com.travis.entity.VideoInfomation" >
+    select 
+    t1.video_id,t1.video_name,t1.video_url,t1.video_image,t1.type_id,t2.type_name
+    from video_infomation t1
+    left join video_type t2 on t2.type_id=t1.type_id
+    where 1=1
+    <if test="videoId != null" >
+       and video_id = #{videoId,jdbcType=INTEGER}
+      </if>
+        <if test="videoName != null" >
+       and video_name = #{videoName,jdbcType=VARCHAR}
+      </if>
+   
+  </select>
 </mapper>
