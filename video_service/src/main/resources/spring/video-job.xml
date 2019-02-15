@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+            http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://www.springframework.org/schema/mvc  
+            http://www.springframework.org/schema/mvc/spring-mvc.xsd  
+            http://www.springframework.org/schema/context  
+            http://www.springframework.org/schema/context/spring-context.xsd"
+	default-lazy-init="true">
+	
+	<context:component-scan base-package="com.travis.job" />
+	
+	<bean id="simpleJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="videoData" />
+		<property name="targetMethod" value="PrintVideoData" />
+	</bean>
+
+	<!-- <bean id="firstComplexJobDetail"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass"
+			value="com.imooc.springquartz.quartz.FirstScheduledJob" />
+		<property name="jobDataMap">
+			<map>
+				<entry key="anotherBean" value-ref="anotherBean" />
+			</map>
+		</property>
+		<property name="Durability" value="true"/>				
+	</bean> -->
+	
+	<!-- 距离当前时间1秒之后执行，之后每隔两秒钟执行一次 -->
+	<bean id="mySimpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+	    <property name="jobDetail"  ref="simpleJobDetail"/>
+	    <property name="startDelay"  value="1000"/>
+	    <property name="repeatInterval"  value="60000"/>
+	</bean>
+	
+	<!-- 每隔5秒钟执行一次 -->
+<!-- 	<bean id="myCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+	    <property name="jobDetail"  ref="firstComplexJobDetail"/>
+	    <property name="cronExpression"  value="0/5 * * ? * *"/>
+	</bean>
+	 -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	    <property name="jobDetails">
+	        <list>
+	            <ref bean="simpleJobDetail"/>
+	           <!--  <ref bean="firstComplexJobDetail"/> -->
+	        </list>
+	    </property>
+	    <property name="triggers">
+	        <list>
+	            <ref bean="mySimpleTrigger"/>
+	           <!--  <ref bean="myCronTrigger"/> -->
+	        </list>
+	    </property>
+	</bean>
+</beans>

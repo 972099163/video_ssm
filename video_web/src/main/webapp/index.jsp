@@ -11,6 +11,6 @@
 你能成为那个你
 我能成为那个我
 <a href="videoInfomationController/video_index">视频首页</a>
-<a href="videoInfomationController/video_add">视频添加</a>
+<a href="videoInfomationController/video_add_page">视频添加</a>
 </body>
 </html>

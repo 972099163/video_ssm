@@ -55,4 +55,20 @@
     set type_name = #{typeName,jdbcType=VARCHAR}
     where type_id = #{typeId,jdbcType=INTEGER}
   </update>
+  
+  
+   <select id="selectAll" resultMap="BaseResultMap" parameterType="com.travis.entity.VideoType" >
+    select 
+    <include refid="Base_Column_List" />
+    from video_type
+    where 1=1
+    <if test="typeId != null" >
+       and type_id = #{typeId,jdbcType=INTEGER}
+      </if>
+      
+         <if test="typeName != null" >
+       and type_name = #{typeName,jdbcType=VARCHAR}
+      </if>
+   
+  </select>
 </mapper>

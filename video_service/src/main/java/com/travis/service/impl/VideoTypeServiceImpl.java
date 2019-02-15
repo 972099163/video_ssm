@@ -1,5 +1,7 @@
 package com.travis.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +43,11 @@ public class VideoTypeServiceImpl implements VideoTypeService {
 	public int updateByPrimaryKey(VideoType record) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public List<VideoType> selectAll(VideoType record) {
+		// TODO Auto-generated method stub
+		return videoTypeMapper.selectAll(record);
 	}
 	
 }
