@@ -1,5 +1,7 @@
 package com.travis.dao;
 
+import java.util.List;
+
 import com.travis.entity.VideoInfomation;
 
 public interface VideoInfomationMapper {
@@ -14,4 +16,5 @@ public interface VideoInfomationMapper {
     int updateByPrimaryKeySelective(VideoInfomation record);
 
     int updateByPrimaryKey(VideoInfomation record);
+    List<VideoInfomation> selectAll(VideoInfomation record);
 }

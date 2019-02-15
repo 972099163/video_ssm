@@ -1,5 +1,7 @@
 package com.travis.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.travis.entity.VideoType;
@@ -17,4 +19,5 @@ public interface VideoTypeService {
 	    int updateByPrimaryKeySelective(VideoType record);
 
 	    int updateByPrimaryKey(VideoType record);
+	    List<VideoType> selectAll(VideoType record);
 }

@@ -10,7 +10,8 @@ public class VideoInfomation {
     private String videoImage;
 
     private Integer typeId;
-
+    
+    private String typeName;
     public Integer getVideoId() {
         return videoId;
     }
@@ -50,4 +51,21 @@ public class VideoInfomation {
     public void setTypeId(Integer typeId) {
         this.typeId = typeId;
     }
+
+	
+
+	public String getTypeName() {
+		return typeName;
+	}
+
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
+	}
+
+	@Override
+	public String toString() {
+		return "VideoInfomation [videoId=" + videoId + ", videoName=" + videoName + ", videoUrl=" + videoUrl
+				+ ", videoImage=" + videoImage + ", typeId=" + typeId + ", typeName=" + typeName + "]";
+	}
+    
 }

@@ -13,6 +13,9 @@
         <dependent-module archiveName="entity-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/video_entity/video_entity">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="commons-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/video_commons/video_commons">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="video_web"/>
         <property name="java-output-path" value="/video_web/target/classes"/>
     </wb-module>
